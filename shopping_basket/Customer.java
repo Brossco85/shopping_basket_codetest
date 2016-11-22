@@ -10,8 +10,10 @@ public class Customer{
   public Customer(String name){
     this.name = name;
     this.loyaltyCustomer = false;
-
-    
-
   }
+
+    public String getName(){
+      return this.name;
+    }
+
 }
