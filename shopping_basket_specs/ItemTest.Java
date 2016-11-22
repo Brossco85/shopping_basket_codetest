@@ -16,5 +16,10 @@ public class ItemTest{
     assertEquals("Apple", item1.getBrand());
   }
 
+  @Test
+  public void testGetProduct(){
+    assertEquals("Iphone", item1.getProduct());
+  }
+
 
 }
