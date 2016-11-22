@@ -5,9 +5,9 @@ public class Item {
 
 String brand;
 String product;
-double price;
+int price;
 
-public Item (String brand, String product, double price){
+public Item (String brand, String product, int price){
 this.brand = brand;
 this.product = product;
 this.price = price;
@@ -21,7 +21,7 @@ public String getProduct(){
   return this.product;
 }
 
-public double getPrice(){
+public int getPrice(){
   return this.price;
 }
 

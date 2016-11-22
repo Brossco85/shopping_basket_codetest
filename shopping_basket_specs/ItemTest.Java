@@ -8,7 +8,7 @@ public class ItemTest{
 
   @Before
   public void before(){
-    item1 = new Item("Apple", "Iphone", 400.00);
+    item1 = new Item("Apple", "Iphone", 400);
   }
 
   @Test
@@ -20,6 +20,11 @@ public class ItemTest{
   public void testGetProduct(){
     assertEquals("Iphone", item1.getProduct());
   }
+
+@Test
+public void testGetPrice(){
+  assertEquals(400, item1.getPrice());
+}
 
 
 }
