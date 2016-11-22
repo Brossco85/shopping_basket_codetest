@@ -17,4 +17,9 @@ public void testCustomerName(){
   assertEquals("Bertie", customer1.getName());
 }
 
+@Test
+public void testDefaultLoyaltyCustomer(){
+  assertEquals(false, customer1.isLoyaltyCustomer());
+}
+
 }

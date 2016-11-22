@@ -12,8 +12,12 @@ public class Customer{
     this.loyaltyCustomer = false;
   }
 
-    public String getName(){
-      return this.name;
-    }
+  public String getName(){
+    return this.name;
+  }
+
+public Boolean isLoyaltyCustomer(){
+  return this.loyaltyCustomer;
+}
 
 }
