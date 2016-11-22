@@ -20,4 +20,8 @@ public Boolean isLoyaltyCustomer(){
   return this.loyaltyCustomer;
 }
 
+public void setLoyaltyCustomer(Boolean status){
+  this.loyaltyCustomer = status;
+}
+
 }

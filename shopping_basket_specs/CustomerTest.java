@@ -22,4 +22,10 @@ public void testDefaultLoyaltyCustomer(){
   assertEquals(false, customer1.isLoyaltyCustomer());
 }
 
+@Test
+public void testSetLoyaltyCustomer(){
+  customer1.setLoyaltyCustomer(true);
+  assertEquals(true, customer1.isLoyaltyCustomer());
+}
+
 }
