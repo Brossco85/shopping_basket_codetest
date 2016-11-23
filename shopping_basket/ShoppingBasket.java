@@ -3,9 +3,10 @@ import java.util.*;
 
 public class ShoppingBasket{
 
-HashMap<Item, Integer> basket = new HashMap<Item, Integer>();
+HashMap<Item, Integer> basket;
 
 public ShoppingBasket(){
+basket = new HashMap<Item, Integer>();
 }
 
 public HashMap<Item, Integer> getBasket(){
@@ -29,7 +30,6 @@ public double getBasketTotal(){
   return total;
   }
 
-
 public void addItemToBasket(Item item, Integer quantity){
   basket.put(item, quantity);
 }
@@ -41,6 +41,8 @@ public void removeItemFromBasket(Item item){
 public void clearBasket(){
   basket.clear();
 }
+
+
 
 
 
