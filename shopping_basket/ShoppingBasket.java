@@ -3,29 +3,29 @@ import java.util.*;
 
 public class ShoppingBasket{
 
-ArrayList<Item> basket = new ArrayList<Item>();
+HashMap<Item, Integer> basket = new HashMap<Item, Integer>();
 
 public ShoppingBasket(){
 }
 
-public ArrayList<Item> getBasket(){
+public HashMap<Item, Integer> getBasket(){
   return this.basket;
 }
 
+// ask about using an integer here
 public int getBasketSize(){
-  return basket.size();
-}
-
-public double getBasketTotal(){
-  double sum = 0;
-  for (Item item : basket){
-    sum += item.getPrice(); 
+  int sum = 0;
+  for (int quantity : basket.values()){
+    sum += quantity;
   }
   return sum;
 }
 
-public void addItemToBasket(Item item){
-  basket.add(item);
+// public double getBasketTotal(){
+
+
+public void addItemToBasket(Item item, Integer quantity){
+  basket.put(item, quantity);
 }
 
 public void clearBasket(){
