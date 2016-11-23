@@ -4,28 +4,28 @@ import shopping_basket.*;
 
 public class CustomerTest{
 
-Customer customer1;
+  Customer customer1;
 
-@Before
-public void before(){
+  @Before
+  public void before(){
 
-customer1 = new Customer("Bertie");
-}
+    customer1 = new Customer("Bertie");
+  }
 
-@Test
-public void testCustomerName(){
-  assertEquals("Bertie", customer1.getName());
-}
+  @Test
+  public void testCustomerName(){
+    assertEquals("Bertie", customer1.getName());
+  }
 
-@Test
-public void testDefaultLoyaltyCustomer(){
-  assertEquals(false, customer1.isLoyaltyCustomer());
-}
+  @Test
+  public void testDefaultLoyaltyCustomer(){
+    assertEquals(false, customer1.isLoyaltyCustomer());
+  }
 
-@Test
-public void testSetLoyaltyCustomer(){
-  customer1.setLoyaltyCustomer(true);
-  assertEquals(true, customer1.isLoyaltyCustomer());
-}
+  @Test
+  public void testSetLoyaltyCustomer(){
+    customer1.setLoyaltyCustomer(true);
+    assertEquals(true, customer1.isLoyaltyCustomer());
+  }
 
 }

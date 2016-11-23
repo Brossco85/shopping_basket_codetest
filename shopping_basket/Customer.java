@@ -16,12 +16,12 @@ public class Customer{
     return this.name;
   }
 
-public Boolean isLoyaltyCustomer(){
-  return this.loyaltyCustomer;
-}
+  public Boolean isLoyaltyCustomer(){
+    return this.loyaltyCustomer;
+  }
 
-public void setLoyaltyCustomer(Boolean status){
-  this.loyaltyCustomer = status;
-}
+  public void setLoyaltyCustomer(Boolean status){
+    this.loyaltyCustomer = status;
+  }
 
 }

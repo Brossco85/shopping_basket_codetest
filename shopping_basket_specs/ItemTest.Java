@@ -21,10 +21,10 @@ public class ItemTest{
     assertEquals("Iphone", item1.getProduct());
   }
 
-@Test
-public void testGetPrice(){
-  assertEquals(400.49, item1.getPrice(), 0.01);
-}
+  @Test
+  public void testGetPrice(){
+    assertEquals(400.49, item1.getPrice(), 0.01);
+  }
 
 
 
