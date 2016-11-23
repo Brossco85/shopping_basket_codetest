@@ -16,6 +16,14 @@ public int getBasketSize(){
   return basket.size();
 }
 
+public double getBasketTotal(){
+  sum = 0;
+  for (Item item : basket){
+    sum += item.getPrice(); 
+  }
+  return sum;
+}
+
 public void addItemToBasket(Item item){
   basket.add(item);
 }
@@ -23,6 +31,10 @@ public void addItemToBasket(Item item){
 public void clearBasket(){
   basket.clear();
 }
+
+
+
+
 
 
 }
