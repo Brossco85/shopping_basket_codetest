@@ -51,4 +51,10 @@ public void testRemoveItemFromBasket(){
   assertEquals(1, basket1.getBasketSize());
 }
 
+@Test
+public void testBuyOneGetOneFree(){
+  basket1.addItemToBasket(item1, 5);
+  assertEquals(-601.00, basket1.buyOneGetOneFree(item1), 0.01);
+}
+
 }

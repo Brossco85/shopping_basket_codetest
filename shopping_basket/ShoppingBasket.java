@@ -42,9 +42,20 @@ public void clearBasket(){
   basket.clear();
 }
 
-
-
-
+public double buyOneGetOneFree(Item itemOnOffer){
+  double bogof = 0;
+  for (Item item : basket.keySet()){
+      if (item == itemOnOffer){
+        if (basket.get(item) % 2 == 0){
+          bogof -= (item.getPrice() * basket.get(item)) * 0.5;
+        }
+        else {
+          bogof -= item.getPrice() * (basket.get(item) - (basket.get(item) % 2)) * 0.5;
+        }
+      }
+  }
+  return bogof;
+}
 
 
 
