@@ -63,7 +63,7 @@ public class ShoppingBasketTest{
   public void testBuyOneGetOneFree(){
     basket1.addItemToBasket(item1, 5);
     basket1.setBogofPromotionalItem(item1);
-    assertEquals(-601.00, basket1.buyOneGetOneFree(), 0.01);
+    assertEquals(-601.00, basket1.bogofDiscount(), 0.01);
   }
 
   @Test

@@ -64,7 +64,7 @@ public class ShoppingBasket{
    return bogofPromotion.getProduct();
  }
 
- public double buyOneGetOneFree(){
+ public double bogofDiscount(){
   double bogof = 0;
   for (Item item : basket.keySet()){
     if (item == bogofPromotion){ 
@@ -75,7 +75,7 @@ public class ShoppingBasket{
 }
 
 public boolean basketOverMinimumSpend(){
- return (getBasketTotal() + buyOneGetOneFree() > 20);
+ return (getBasketTotal() + bogofDiscount() > 20);
 }
 
 public boolean customerHasLoyaltyCard(){
@@ -83,7 +83,7 @@ public boolean customerHasLoyaltyCard(){
 }
 
 public double totalAfterPromotionalDiscounts(){
-  double total = getBasketTotal() + buyOneGetOneFree();
+  double total = getBasketTotal() + bogofDiscount();
   total *= (basketOverMinimumSpend()) ? 0.8 : 1;
   total *= (customerHasLoyaltyCard()) ? 0.98 : 1;
   return total;
