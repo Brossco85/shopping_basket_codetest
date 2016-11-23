@@ -28,11 +28,13 @@ public void testAddItemToBasket(){
   assertEquals(1, basket1.getBasketSize());
 }
 
-// @Test
-// public void testClearBasket(){
-
-//   assertEquals(0, basket1.getBasketSize());
-// }
+@Test
+public void testClearBasket(){
+  basket1.addItemToBasket(item1);
+  assertEquals(1, basket1.getBasketSize());
+  basket1.clearBasket();
+  assertEquals(0, basket1.getBasketSize());
+}
 
 
 }
