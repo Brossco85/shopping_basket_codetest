@@ -54,7 +54,19 @@ public void testRemoveItemFromBasket(){
 @Test
 public void testBuyOneGetOneFree(){
   basket1.addItemToBasket(item1, 5);
-  assertEquals(-601.00, basket1.buyOneGetOneFree(item1), 0.01);
+  basket1.setBogofPromotionalItem(item1);
+  assertEquals(-601.00, basket1.buyOneGetOneFree(), 0.01);
 }
+
+@Test
+public void testSetBogofPromotionalItem(){
+  basket1.setBogofPromotionalItem(item1);
+  assertEquals("Iphone", basket1.getBogofPromotionalItem());
+}
+
+// @Test
+// public void testBasketOverMinimumSpend(){
+//   assertEquals(false, bask)
+// }
 
 }

@@ -4,9 +4,12 @@ import java.util.*;
 public class ShoppingBasket{
 
 HashMap<Item, Integer> basket;
+private Item bogofPromotion = null;
 
 public ShoppingBasket(){
 basket = new HashMap<Item, Integer>();
+// bogofPromotion = null;
+
 }
 
 public HashMap<Item, Integer> getBasket(){
@@ -42,10 +45,18 @@ public void clearBasket(){
   basket.clear();
 }
 
-public double buyOneGetOneFree(Item itemOnOffer){
+public void setBogofPromotionalItem(Item item){
+  bogofPromotion = item;
+}
+
+public String getBogofPromotionalItem(){
+ return bogofPromotion.getProduct();
+}
+
+public double buyOneGetOneFree(){
   double bogof = 0;
   for (Item item : basket.keySet()){
-      if (item == itemOnOffer){
+      if (item == bogofPromotion){
         if (basket.get(item) % 2 == 0){
           bogof -= (item.getPrice() * basket.get(item)) * 0.5;
         }
@@ -56,6 +67,14 @@ public double buyOneGetOneFree(Item itemOnOffer){
   }
   return bogof;
 }
+
+// public boolean basketOverMinimumSpend(){
+//  return (getBasketTotal() + buyOneGetOneFree() > 20);
+// }
+
+// public double tenPercentOffTwentySpent(){
+
+// }
 
 
 
