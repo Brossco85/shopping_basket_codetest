@@ -17,7 +17,7 @@ public int getBasketSize(){
 }
 
 public double getBasketTotal(){
-  sum = 0;
+  double sum = 0;
   for (Item item : basket){
     sum += item.getPrice(); 
   }
