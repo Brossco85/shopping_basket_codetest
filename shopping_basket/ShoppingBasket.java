@@ -3,13 +3,22 @@ import java.util.*;
 
 public class ShoppingBasket{
 
+Customer customer;
 HashMap<Item, Integer> basket;
-private Item bogofPromotion = null;
+Item bogofPromotion;
 
-public ShoppingBasket(){
+public ShoppingBasket(Customer customer){
+customer = customer;
 basket = new HashMap<Item, Integer>();
-// bogofPromotion = null;
+bogofPromotion = null;
+}
 
+
+public ShoppingBasket(Customer customer, Item bogofItem){
+customer = customer;
+
+basket = new HashMap<Item, Integer>();
+bogofPromotion = bogofItem;
 }
 
 public HashMap<Item, Integer> getBasket(){
@@ -68,9 +77,9 @@ public double buyOneGetOneFree(){
   return bogof;
 }
 
-// public boolean basketOverMinimumSpend(){
-//  return (getBasketTotal() + buyOneGetOneFree() > 20);
-// }
+public boolean basketOverMinimumSpend(){
+ return (getBasketTotal() + buyOneGetOneFree() > 20);
+}
 
 // public double tenPercentOffTwentySpent(){
 

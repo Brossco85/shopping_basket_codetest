@@ -4,17 +4,23 @@ import shopping_basket.*;
 
 public class ShoppingBasketTest{
 
+Customer customer1;
 ShoppingBasket basket1;
 Item item1;
 Item item2;
 Item item3;
+ShoppingBasket basket2;
+
 
 @Before
 public void before(){
-  basket1 = new ShoppingBasket();
+  customer1 = new Customer("Bertie");
+  basket1 = new ShoppingBasket(customer1);
+  customer1.setLoyaltyCustomer(true);
   item1 = new Item("Apple", "Iphone", 300.50);
   item2 = new Item("Apple", "Macbook", 500.50);
   item3 = new Item("MicroSoft", "SurfacePro", 700.50);
+  basket2 = new ShoppingBasket(customer1, item1);
 }
 
 @Test
@@ -60,13 +66,14 @@ public void testBuyOneGetOneFree(){
 
 @Test
 public void testSetBogofPromotionalItem(){
-  basket1.setBogofPromotionalItem(item1);
-  assertEquals("Iphone", basket1.getBogofPromotionalItem());
+  assertEquals("Iphone", basket2.getBogofPromotionalItem());
 }
 
-// @Test
-// public void testBasketOverMinimumSpend(){
-//   assertEquals(false, bask)
-// }
+@Test
+public void testBasketOverMinimumSpend(){
+  assertEquals(false, basket1.basketOverMinimumSpend());
+  basket1.addItemToBasket(item1, 2);
+  assertEquals(true, basket1.basketOverMinimumSpend());
+}
 
 }
