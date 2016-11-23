@@ -16,5 +16,13 @@ public int getBasketSize(){
   return basket.size();
 }
 
+public void addItemToBasket(Item item){
+  basket.add(item);
+}
+
+public void clearBasket(){
+  basket.clear();
+}
+
 
 }
