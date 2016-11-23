@@ -21,7 +21,13 @@ public int getBasketSize(){
   return sum;
 }
 
-// public double getBasketTotal(){
+public double getBasketTotal(){
+  double total = 0;
+  for (Item item : basket.keySet()){
+    total += item.getPrice() * basket.get(item);
+  }
+  return total;
+  }
 
 
 public void addItemToBasket(Item item, Integer quantity){

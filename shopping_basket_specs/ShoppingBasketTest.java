@@ -36,12 +36,12 @@ public void testClearBasket(){
   assertEquals(0, basket1.getBasketSize());
 }
 
-// @Test
-// public void testGetBasketTotal(){
-//   basket1.addItemToBasket(item1, 2);
-//   basket1.addItemToBasket(item2, 3);
-//   basket1.addItemToBasket(item3);
-// assertEquals(1501.50, basket1.getBasketTotal(), 0.01);
-// }
+@Test
+public void testGetBasketTotal(){
+  basket1.addItemToBasket(item1, 2);
+  basket1.addItemToBasket(item2, 3);
+  basket1.addItemToBasket(item3, 4);
+assertEquals(4904.50, basket1.getBasketTotal(), 0.01);
+}
 
 }
