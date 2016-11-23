@@ -3,76 +3,73 @@ import java.util.*;
 
 public class ShoppingBasket{
 
-Customer customer;
-HashMap<Item, Integer> basket;
-Item bogofPromotion;
+  Customer customer;
+  HashMap<Item, Integer> basket;
+  Item bogofPromotion;
 
-public ShoppingBasket(Customer customer){
-customer = customer;
-basket = new HashMap<Item, Integer>();
-bogofPromotion = null;
-}
+  public ShoppingBasket(Customer customer){
+    this.customer = customer;
+    basket = new HashMap<Item, Integer>();
+    bogofPromotion = null;
+  }
 
+  public ShoppingBasket(Customer customer, Item bogofItem){
+    this.customer = customer;
+    basket = new HashMap<Item, Integer>();
+    bogofPromotion = bogofItem;
+  }
 
-public ShoppingBasket(Customer customer, Item bogofItem){
-customer = customer;
+  public Customer getCustomer(){
+    return this.customer;
+  }
 
-basket = new HashMap<Item, Integer>();
-bogofPromotion = bogofItem;
-}
-
-public HashMap<Item, Integer> getBasket(){
-  return this.basket;
-}
+  public HashMap<Item, Integer> getBasket(){
+    return this.basket;
+  }
 
 // ask about using an integer here
-public int getBasketSize(){
-  int sum = 0;
-  for (int quantity : basket.values()){
-    sum += quantity;
-  }
-  return sum;
-}
-
-public double getBasketTotal(){
-  double total = 0;
-  for (Item item : basket.keySet()){
-    total += item.getPrice() * basket.get(item);
-  }
-  return total;
+  public int getBasketSize(){
+    int sum = 0;
+    for (int quantity : basket.values()){
+      sum += quantity;
+    }
+    return sum;
   }
 
-public void addItemToBasket(Item item, Integer quantity){
-  basket.put(item, quantity);
-}
+  public double getBasketTotal(){
+    double total = 0;
+    for (Item item : basket.keySet()){
+      total += item.getPrice() * basket.get(item);
+    }
+    return total;
+  }
 
-public void removeItemFromBasket(Item item){
-  basket.put(item, basket.get(item) -1);
-}
+  public void addItemToBasket(Item item, Integer quantity){
+    basket.put(item, quantity);
+  }
 
-public void clearBasket(){
-  basket.clear();
-}
+  public void removeItemFromBasket(Item item){
+    basket.put(item, basket.get(item) -1);
+  }
 
-public void setBogofPromotionalItem(Item item){
-  bogofPromotion = item;
-}
+  public void clearBasket(){
+    basket.clear();
+  }
 
-public String getBogofPromotionalItem(){
- return bogofPromotion.getProduct();
-}
+  public void setBogofPromotionalItem(Item item){
+    bogofPromotion = item;
+  }
 
-public double buyOneGetOneFree(){
+  public String getBogofPromotionalItem(){
+   return bogofPromotion.getProduct();
+ }
+
+ public double buyOneGetOneFree(){
   double bogof = 0;
   for (Item item : basket.keySet()){
-      if (item == bogofPromotion){
-        if (basket.get(item) % 2 == 0){
-          bogof -= (item.getPrice() * basket.get(item)) * 0.5;
-        }
-        else {
-          bogof -= item.getPrice() * (basket.get(item) - (basket.get(item) % 2)) * 0.5;
-        }
-      }
+    if (item == bogofPromotion){ 
+      bogof -= item.getPrice() * (basket.get(item) - (basket.get(item) % 2)) * 0.5;
+    }
   }
   return bogof;
 }
@@ -81,9 +78,16 @@ public boolean basketOverMinimumSpend(){
  return (getBasketTotal() + buyOneGetOneFree() > 20);
 }
 
-// public double tenPercentOffTwentySpent(){
+public boolean customerHasLoyaltyCard(){
+  return (customer.isLoyaltyCustomer());
+}
 
-// }
+public double totalAfterPromotionalDiscounts(){
+  double total = getBasketTotal() + buyOneGetOneFree();
+  total *= (basketOverMinimumSpend()) ? 0.8 : 1;
+  total *= (customerHasLoyaltyCard()) ? 0.98 : 1;
+  return total;
+}
 
 
 
