@@ -34,6 +34,10 @@ public void addItemToBasket(Item item, Integer quantity){
   basket.put(item, quantity);
 }
 
+public void removeItemFromBasket(Item item){
+  basket.put(item, basket.get(item) -1);
+}
+
 public void clearBasket(){
   basket.clear();
 }

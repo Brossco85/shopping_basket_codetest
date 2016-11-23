@@ -44,4 +44,11 @@ public void testGetBasketTotal(){
 assertEquals(4904.50, basket1.getBasketTotal(), 0.01);
 }
 
+@Test
+public void testRemoveItemFromBasket(){
+  basket1.addItemToBasket(item1, 2);
+  basket1.removeItemFromBasket(item1);
+  assertEquals(1, basket1.getBasketSize());
+}
+
 }
